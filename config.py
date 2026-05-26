@@ -14,6 +14,35 @@ BTN_PARAMS = {
     "font": ('Constantia', 20)
 }
 
+MSG_PARAMS = {
+    "width": 300,
+    "height": 150,
+    "title": 'Ошибочка',
+    "icon": 'info',
+    "justify": 'center',
+    "button_color": BTN_COLOR_2,
+    "button_hover_color": BTN_COLOR_1,
+    "button_text_color": BTN_COLOR_3
+}
+
+ENTRY_PARAMS = {
+    "width": 500,
+    "height": 30,
+    "corner_radius": 40,
+    "justify": 'c',
+    "text_color": TXT_COLOR_1,
+    "font": ('Cambria', 27)
+}
+
+BALL_PARAMS = {
+    "text": '',
+    "width": 200,
+    "height": 200,
+    "corner_radius": 100,
+    "fg_color": 'red',
+    "hover_color": 'red',
+}
+
 ANSWER_WORDS = [
     'Бесспорно', 'Предрешено', 'Никаких сомнений',
     'Определённо да', 'Можешь быть уверен в этом',
@@ -44,8 +73,10 @@ ERROR_MESSAGES = {
     'empty': 'В поле пусто',
     'too_short': 'Слишком мало символов',
     'not_alpha': 'А как же буковки?',
-    'not_question': 'Шару нужен этот значок в конце = "?"'
+    'not_question': 'Шару нужен знак вопроса в конце'
 }
+
+FRM_MESSAGES = {
 
 COLORS = [
     '#99ff66', '#ff1493', '#00ffff', '#ffe119', '#3cb44b', '#f58231', '#f032e6', '#bcf60c',

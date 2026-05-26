@@ -90,25 +90,12 @@ class GamePage(ctk.CTkFrame):
             )
             label.place(relx = 0.5, rely = 0.15 + (idx * 0.25), anchor = 'c')
 
-        self.entry = ctk.CTkEntry(
-            self,
-            width = 500,
-            height = 30,
-            corner_radius = 40,
-            justify = 'c',
-            text_color = cfg.TXT_COLOR_1,
-            font = ('Cambria', 27)
-        )
+        self.entry = ctk.CTkEntry(self, **cfg.ENTRY_PARAMS)
         self.entry.place(relx = 0.5, rely = 0.28, anchor = 'c')
 
-        self.button = ctk.CTkButton (
+        self.button = ctk.CTkButton(
             self,
-            text = '',
-            width = 200,
-            height = 200,
-            corner_radius = 100,
-            fg_color = choice(cfg.COLORS),
-            hover_color = choice(cfg.COLORS),
+            **cfg.BALL_PARAMS,
             command = lambda: self.get_status(self.entry.get())
         )
         self.button.place(relx = 0.5, rely = 0.7, anchor = 'c')
@@ -117,6 +104,16 @@ class GamePage(ctk.CTkFrame):
         status = self.controller.transfer_data(user_input)
 
         if status in cfg.ERROR_MESSAGES:
+            error_message = CTkMessagebox(
+                self.controller,
+                **cfg.MSG_PARAMS,
+                message = cfg.ERROR_MESSAGES[status]
+            )
+            app.wait_window(error_message)
+            self.prepare_entry()
+            return
+
+
 
 
     def prepare_entry(self):
@@ -141,11 +138,10 @@ class MessagePage(ctk.CTkFrame):
         )
         self.message_label.place(relx = 0.5, rely = 0.5, anchor = 'c')
 
-    def update_message(self,
+    def update_message(self, info):
+        self.message_label.co
 
-class MainLogic:
-    def __init__(self):
-
+class MainLogic():
     def check_input(self, user_input):
         cleaned_input = user_input.strip()
 
@@ -174,6 +170,8 @@ class MainApp(ctk.CTk):
 
         self.main_logic = MainLogic()
 
+        self.transfer_data = self.main_logic.check_input
+
         self.pages = {}
         self.current_frame = None
         for F in (GreetingsPage, RulesPage, GamePage):
@@ -187,9 +185,8 @@ class MainApp(ctk.CTk):
         self.current_frame = self.pages[page_name]
         self.current_frame.pack(fill="both", expand=True)
 
-    def transfer_data(self, user_input):
-        status = self.main_logic.check_input(user_input)
-        return status
+    def show_message(self):
+
 
     def create_game(self):
         self.pages['GamePage'].update_game()
