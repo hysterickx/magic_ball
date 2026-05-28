@@ -16,7 +16,8 @@ A fun, interactive desktop application inspired by the famous fortune-telling Ma
 
 ## 📸 Preview
 
-<img width="524" height="398" alt="image" src="https://github.com/user-attachments/assets/b801e7b9-b82d-416a-ba15-3901b82c8734" />
+<img width="523" height="397" alt="image" src="https://github.com/user-attachments/assets/cc78ff09-01a9-4cf6-a669-f3fe31ef8949" />
+
 
 
 ## 💻 How to Run
